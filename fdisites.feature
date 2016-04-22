@@ -37,3 +37,40 @@ Feature: FDI live and stage sites running
         | http://stage.www.fdireports.com                      | 200         |
         | http://stage.www.thebankerdatabase.com               | 200         |
         | https://stage.www.thebankerdatabase.com              | 200         |
+
+
+   Scenario Outline: FDI LIVE sites running with secret cookie
+    I set the <header> and <origin>
+    I check the response code <status_code>
+
+    Examples:
+        | header                                      | origin                                   |status_code |
+        | ams.fdiintelligence.com                     | http://fdi-origin.glb.ft.com             |200         |
+        | app.fdibenchmark.com                        | http://fdi-origin.glb.ft.com             |200         |
+        | app.fdimarkets.com                          | http://fdi-origin.glb.ft.com             |200         |
+        | data.ftconfidentialresearch.com             | http://fdi-origin.glb.ft.com             |200         |
+        | de.fdimarkets.com                           | http://fdi-origin.glb.ft.com             |200         |
+        | islamicbanks.thebanker.com                  | http://fdi-origin.glb.ft.com             |200         |
+        | www.fdibenchmark.com                        | http://fdi-origin.glb.ft.com             |200         |
+        | www.fdimarkets.com                          | http://fdi-origin.glb.ft.com             |200         |
+        | www.fdireports.com                          | http://fdi-origin.glb.ft.com             |200         |
+        | www.thebankerdatabase.com                   | http://fdi-origin.glb.ft.com             |200         |
+        | www.thebankerdatabase.com                   | https://fdi-origin.glb.ft.com            |200         |
+
+  Scenario Outline: FDI STAGE sites running with secret cookie
+    I set the <header> and <origin>
+    I check the response code <status_code>
+
+    Examples:
+        | header                                            | origin                                   |status_code |
+        | stage.ams.fdiintelligence.com                     | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.app.fdibenchmark.com                        | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.app.fdimarkets.com                          | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.data.ftconfidentialresearch.com             | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.de.fdimarkets.com                           | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.islamicbanks.thebanker.com                  | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.www.fdibenchmark.com                        | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.www.fdimarkets.com                          | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.www.fdireports.com                          | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.www.thebankerdatabase.com                   | http://stage-fdi-origin.glb.ft.com       |403         |
+        | stage.www.thebankerdatabase.com                   | https://stage-fdi-origin.glb.ft.com      |403         |
