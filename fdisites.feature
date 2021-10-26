@@ -75,7 +75,7 @@ Feature: FDI live and stage sites running
       | stage.www.thebankerdatabase.com       | https://stage-fdi-origin.glb.ft.com | 403         |
 
   Scenario Outline: Testing FDI LIVE sites origin with cookie
-    I set the <header> and <origin> with cookie
+  #  I set the <header> and <origin> with cookie
     I check the response code <status_code>
 
       Examples:
